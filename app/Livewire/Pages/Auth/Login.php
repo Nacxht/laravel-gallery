@@ -7,6 +7,8 @@ use App\Models\Admin;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class Login extends Component
 {
@@ -41,8 +43,10 @@ class Login extends Component
         return back();
     }
 
+    #[Layout('layouts.auth-layout')]
+    #[Title('Login')]
     public function render()
     {
-        return view('livewire.pages.auth.login');
+        return view('pages.auth.login');
     }
 }

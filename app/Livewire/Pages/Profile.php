@@ -2,16 +2,23 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\User;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class Profile extends Component
 {
+    public $username;
+
     #[Layout('layouts.app-layout')]
     #[Title('Gallery')]
     public function render()
     {
-        return view('pages.index');
+        $user = User::where('username', '=', $this->username)->first();
+
+        return view('pages.profile', [
+            'user' => $user,
+        ]);
     }
 }

@@ -5,6 +5,8 @@ namespace App\Livewire\Pages\Auth;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -45,20 +47,23 @@ class Register extends Component
         }
 
         User::create([
-            'username' => $this->username,
+            'username' => Str::lower($this->username),
             'password' => $this->password,
             'email' => $this->email,
             'full_name' => $this->fullName,
             'address' => $this->address,
             'avatar' => $filename,
+            'slug' => Str::slug($this->username),
         ]);
 
         session()->flash('status_success', 'Berhasil membuat user!');
         $this->redirect('/login', navigate: true);
     }
 
+    #[Layout('layouts.auth-layout')]
+    #[Title('Register')]
     public function render()
     {
-        return view('livewire.pages.auth.register');
+        return view('pages.auth.register');
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\UserProfileController;
+use App\Livewire\Pages\Profile;
+use App\Livewire\Pages\Auth\Login;
+use App\Livewire\Pages\Auth\Register;
 use App\Livewire\Pages\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'pages/index');
-Route::view('/login', 'pages/auth/login')->name('login');
-Route::view('/register', 'pages/auth/register')->name('register');
+Route::get('/', Index::class);
+Route::get('/login', Login::class)->name('login');
+Route::get('/register', Register::class)->name('register');
 
 Route::middleware(['auth:web'])->group(function () {
-    Route::get('profile/{username}', [UserProfileController::class, 'index'])->name('profile');
+    Route::get('profile/{username}', Profile::class)->name('profile');
 });

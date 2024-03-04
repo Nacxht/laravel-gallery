@@ -1,16 +1,35 @@
-<x-app-layout>
-    @section('title', 'Gallery')
-
-    <div class="pt-[6rem] h-screen">
+<div>
+    <div class="pt-[4.8rem] lg:pt-[6rem] pb-3 px-3">
         <div class="container mx-auto grid grid-cols-12 gap-3">
             {{-- User Description --}}
-            <div class="grid grid-cols-12 col-span-4 py-10 px-5 rounded-md h-80 bg-white">
+            <div class="hidden lg:grid col-span-4 py-3 px-5 rounded-md h-80 bg-white gap-0">
+                {{-- Title --}}
+                <p class="font-bold col-span-12 h-fit">Intro</p>
+
+                {{-- Bio --}}
+                <div class="col-span-12 h-fit self-center">
+                    <div class="text-center text-xs px-10 mb-5">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam aliquid debitis id quod enim
+                        autem,
+                        nesciunt atque itaque dignissimos. Eum!
+                    </div>
+
+                    @if (auth()->user()->username === $user->username)
+                        {{-- Edit Bio (Owner) --}}
+                        <button class="btn btn-primary w-full text-sm min-h-[2rem] h-0">Edit Bio</button>
+                    @else
+                        {{-- Divider (Other User) --}}
+                        {{-- <div class="divider col-span-12 h-fit"></div> --}}
+                    @endif
+                </div>
+
+                {{-- Links --}}
                 <div></div>
             </div>
 
             {{-- Header / Profile Section --}}
             <div
-                class="grid grid-cols-12 col-span-4 bg-white py-10 px-5 rounded-md items-center gap-x-3 justify-items-center h-80">
+                class="grid grid-cols-12 col-span-12 lg:col-span-4 bg-white py-10 px-5 rounded-md items-center gap-x-3 justify-items-center h-80">
                 {{-- Avatar --}}
                 <div class="col-span-full">
                     @if ($user->avatar)
@@ -22,9 +41,9 @@
 
                 {{-- Full Name w/ Username --}}
                 <div class="items-center col-span-full text-center">
-                    <p class="font-bold text-3xl">{{ $user->username }}</p>
-                    @if ($user->full_name === $user->username)
-                        <p class="text-base">({{ $user->full_name }})</p>
+                    <p class="font-bold text-3xl capitalize">{{ $user->username }}</p>
+                    @if (Str::lower($user->full_name) === $user->username)
+                        <p class="text-base capitalize text-gray-400">({{ $user->full_name }})</p>
                     @endif
                 </div>
 
@@ -38,14 +57,101 @@
                 <div class="hidden"></div>
             </div>
 
-            {{-- Add Album & Upload Photo --}}
-            <div class="grid grid-cols-12 col-span-4 py-10 px-5 rounded-md h-80 bg-white">
-                {{-- Add Album --}}
-                <div></div>
+            {{-- Edit User, Add Album, Upload Photo | Add Friend, Send DM --}}
+            <div
+                class="grid grid-cols-12 col-span-12 lg:col-span-4 py-10 px-5 rounded-md h-auto lg:h-80 bg-white items-center">
+                @if (auth()->user()->username === $user->username)
+                    {{-- Profile Owner / Admin --}}
+                    <div class="col-span-12 grid grid-cols-12 gap-3">
+                        {{-- Edit User --}}
+                        <a href="" wire:navigate
+                            class="col-span-12 text-center btn btn-outline border-gray-200 hover:bg-gray-200 hover:border-gray-200 hover:text-black">
+                            Edit profile
+                        </a>
 
-                {{-- Upload Photo --}}
+                        {{-- Add Album --}}
+                        <div onclick="main_modal.showModal()"
+                            @click="$dispatch('main_modal', {
+                            id: 'addAlbum',
+                            topDivider: true,
+                            bottomDivider: false,
+                            topClose: true,
+                            bottomClose: true,
+                            modalTitle: 'Add Album',
+                            componentName: 'AddAlbum',
+                            modalTitleClass: 'font-bold text-center',
+                        })"
+                            class="col-span-6 text-center btn btn-outline border-gray-200 hover:bg-gray-200 hover:border-gray-200 hover:text-black">
+                            Add an album
+                        </div>
+
+                        {{-- Upload Photo --}}
+                        <div onclick="main_modal.showModal()"
+                            @click="$dispatch('main_modal', {
+                            id: 'addAlbum',
+                            topDivider: true,
+                            bottomDivider: false,
+                            topClose: true,
+                            bottomClose: true,
+                            modalTitle: 'Upload a photo',
+                            componentName: 'UploadPhoto',
+                            modalTitleClass: 'font-bold text-center',
+                        })"
+                            class="col-span-6 text-center btn btn-outline border-gray-200 hover:bg-gray-200 hover:border-gray-200 hover:text-black">
+                            Upload a photo
+                        </div>
+                    </div>
+                @else
+                    {{-- Other User --}}
+                    <div class="col-span-12 grid grid-cols-12 gap-3">
+                        {{-- Add Friend --}}
+                        <div
+                            class="col-span-6 text-center btn btn-outline border-gray-200 hover:bg-gray-200 hover:border-gray-200 hover:text-black">
+                            Add as a friend
+                        </div>
+
+                        {{-- Send DM --}}
+                        <div
+                            class="col-span-6 text-center btn btn-outline border-gray-200 hover:bg-gray-200 hover:border-gray-200 hover:text-black">
+                            Send Message
+                        </div>
+                    </div>
+                @endif
+            </div>
+
+            {{-- Tabs Navigator --}}
+            <div class="grid grid-cols-12 col-span-full lg:col-span-4 p-5 rounded-md h-auto bg-white">
+                <div class="col-span-full font-bold">
+                    {{-- Title --}}
+                    <div class="mb-2">
+                        <span>Posts</span>
+                        <div class="divider my-0"></div>
+                    </div>
+
+                    {{-- Tabs Navigation --}}
+                    <div role="tablist" class="tabs tabs-bordered mb-0 lg:mb-5 ">
+                        <a role="tab" class="tab tab-active text-sm">Photos</a>
+                        <a role="tab" class="tab border-collapse text-sm">Albums</a>
+                    </div>
+
+                    {{-- Tabs Description --}}
+                    <div class="text-center text-xs px-5 hidden lg:block text-gray-400 font-normal">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam saepe officia in beatae et
+                        aperiam,
+                        rerum quas corporis optio, a nobis libero dolorem. Corporis laborum repellat labore nesciunt hic
+                        ipsum!
+                    </div>
+                </div>
+            </div>
+
+            {{-- Tabs Content (Posts, Albums, User Config, etc) --}}
+            <div class="grid grid-cols-12 col-span-full lg:col-span-8 pt-5 pb-10 px-5 rounded-md h-80 bg-white">
+                {{-- Content --}}
                 <div></div>
             </div>
         </div>
     </div>
-</x-app-layout>
+
+    {{-- Modal List --}}
+    <livewire:components.modal />
+</div>

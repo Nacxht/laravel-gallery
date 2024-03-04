@@ -1,7 +1,5 @@
-<x-app-layout>
-    @section('title', 'Gallery')
-
-    <div class="z-10">
-        <livewire:pages.index />
+<div class="pt-[5.5rem]">
+    <div>
+        tes
     </div>
-</x-app-layout>
+</div>
