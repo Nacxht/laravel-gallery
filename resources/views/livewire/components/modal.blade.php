@@ -17,13 +17,21 @@
         @endif
 
         {{-- Content --}}
-        <div class="overflow-y-auto">
+        <div class="overflow-y-auto px-1">
             @if ($componentName === 'AddAlbum')
                 <livewire:forms.add-album />
             @endif
 
             @if ($componentName === 'UploadPhoto')
                 <livewire:forms.upload-photo />
+            @endif
+
+            @if ($componentName === 'EditPhoto')
+                <livewire:forms.edit-photo :photoId='$id' />
+            @endif
+
+            @if ($componentName === 'DeletePhoto')
+                <livewire:partials.profile.delete-photo />
             @endif
         </div>
 

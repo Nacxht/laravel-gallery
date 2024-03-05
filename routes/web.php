@@ -18,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Index::class);
-Route::get('/login', Login::class)->name('login');
-Route::get('/register', Register::class)->name('register');
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', Login::class)->name('login');
+    Route::get('/register', Register::class)->name('register');
+});
 
 Route::middleware(['auth:web'])->group(function () {
     Route::get('profile/{username}', Profile::class)->name('profile');

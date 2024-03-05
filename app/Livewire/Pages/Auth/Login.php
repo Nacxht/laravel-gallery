@@ -31,7 +31,7 @@ class Login extends Component
 
         if (Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password])) {
             session()->regenerate();
-            return redirect('/');
+            return $this->redirect('/', navigate: true);
         }
 
         if (!$user && !$admin) {

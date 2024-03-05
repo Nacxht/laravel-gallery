@@ -93,7 +93,7 @@
                             bottomDivider: false,
                             topClose: true,
                             bottomClose: true,
-                            modalTitle: 'Upload a photo',
+                            modalTitle: 'Upload Photo',
                             componentName: 'UploadPhoto',
                             modalTitleClass: 'font-bold text-center',
                         })"
@@ -120,7 +120,7 @@
             </div>
 
             {{-- Tabs Navigator --}}
-            <div class="grid grid-cols-12 col-span-full lg:col-span-4 p-5 rounded-md h-auto bg-white">
+            <div class="grid grid-cols-12 col-span-full lg:col-span-4 p-5 rounded-md h-auto max-h-80 bg-white">
                 <div class="col-span-full font-bold">
                     {{-- Title --}}
                     <div class="mb-2">
@@ -145,9 +145,9 @@
             </div>
 
             {{-- Tabs Content (Posts, Albums, User Config, etc) --}}
-            <div class="grid grid-cols-12 col-span-full lg:col-span-8 pt-5 pb-10 px-5 rounded-md h-80 bg-white">
+            <div class="grid grid-cols-12 col-span-full lg:col-span-8 p-5 rounded-md h-[33rem] max-h-[33rem] bg-white">
                 {{-- Content --}}
-                <div></div>
+                <livewire:partials.profile.post-album />
             </div>
         </div>
     </div>
