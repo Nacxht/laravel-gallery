@@ -56,9 +56,10 @@
                                         topClose: true,
                                         bottomClose: false,
                                         modalTitle: 'Delete Photo',
-                                        componentName: 'DeletePhotoContent',
+                                        componentName: 'DeletePhoto',
                                         modalTitleClass: 'font-bold text-center',
-                                    })"
+                                    });
+                                    $dispatch('delete_photo', {id: {{ $photo->id }}})"
                                     class="btn btn-error w-32">
                                     Delete Photo
                                 </button>

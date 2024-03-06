@@ -23,10 +23,10 @@
             </div>
             <select wire:model='photoAlbum'
                 class="select select-bordered focus:outline-none text-xs lg:text-sm capitalize text-gray-400">
-                <option selected value="">Select Album</option>
+                <option class="capitalize" selected value="">Select Album</option>
                 @foreach ($albums as $album)
                     <option value="{{ $album->id }}" class="text-black capitalize">
-                        {{ str_replace('-', ' ', $album->album_name) }}</option>
+                        {{ ucfirst(str_replace('-', ' ', $album->album_name)) }}</option>
                 @endforeach
             </select>
             <div class="label">

@@ -75,7 +75,7 @@
             </div>
 
             {{-- Submit Button --}}
-            <button @click="$dispatch('refreshPhoto')" type="submit" class="col-span-12 w-full btn btn-primary">
+            <button @click="$dispatch('refresh_photo')" type="submit" class="col-span-12 w-full btn btn-primary">
                 Update photo data
             </button>
         </div>

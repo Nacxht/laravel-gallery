@@ -20,7 +20,7 @@ class UploadPhoto extends Component
     #[Validate('required')]
     public $photoAlbum;
 
-    #[Validate('required|min:5')]
+    #[Validate('required|min:3')]
     public $photoDescription;
 
     #[Validate('required|image|max:1024')]

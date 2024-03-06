@@ -31,7 +31,7 @@
             @endif
 
             @if ($componentName === 'DeletePhoto')
-                <livewire:partials.profile.delete-photo />
+                <livewire:partials.profile.delete-photo :photoId='$id' />
             @endif
         </div>
 

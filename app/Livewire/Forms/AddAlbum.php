@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AddAlbum extends Component
 {
-    #[Validate('required|min:5')]
+    #[Validate('required|min:3')]
     public $albumName;
 
-    #[Validate('required|min:5')]
+    #[Validate('required|min:3')]
     public $albumDescription;
 
     public function albumCreate()

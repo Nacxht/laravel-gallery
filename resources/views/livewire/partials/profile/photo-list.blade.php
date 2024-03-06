@@ -1,4 +1,4 @@
-<div wire:refreshPhoto='$wire.$refresh()' class="h-fit grid grid-cols-12 gap-2">
+<div wire:refresh_photo='$wire.$refresh()' class="h-fit grid grid-cols-12 gap-2">
     @foreach ($photos as $photo)
         <button class="col-span-4 lg:col-span-2"
             @click="$dispatch('image_modal', {

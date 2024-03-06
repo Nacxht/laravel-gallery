@@ -25,7 +25,7 @@ class EditPhoto extends Component
     #[Validate('required')]
     public $photoAlbum;
 
-    #[Validate('required|min:5')]
+    #[Validate('required|min:3')]
     public $photoDescription;
 
     #[Validate('nullable|sometimes|image|max:3024')]
@@ -47,6 +47,7 @@ class EditPhoto extends Component
         $this->albums = Album::where('user_id', '=', Auth::id())->get();
     }
 
+    // Update Photo
     public function photoUpdate()
     {
         $validated = $this->validate();
