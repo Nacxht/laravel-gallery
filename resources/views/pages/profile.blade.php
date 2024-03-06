@@ -130,8 +130,14 @@
 
                     {{-- Tabs Navigation --}}
                     <div role="tablist" class="tabs tabs-bordered mb-0 lg:mb-5 ">
-                        <a role="tab" class="tab tab-active text-sm">Photos</a>
-                        <a role="tab" class="tab border-collapse text-sm">Albums</a>
+                        <button @click="$dispatch('profile_tab', {tab: 'photo' })" role="tab"
+                            @if ($tab === 'photo') class="tab tab-active text-sm"
+                            @else
+                            class="tab border-collapse text-sm" @endif>Photos</button>
+                        <button @click="$dispatch('profile_tab', {tab: 'album' })" role="tab"
+                            @if ($tab === 'album') class="tab tab-active text-sm"
+                            @else
+                            class="tab border-collapse text-sm" @endif>Albums</button>
                     </div>
 
                     {{-- Tabs Description --}}
@@ -147,7 +153,7 @@
             {{-- Tabs Content (Posts, Albums, User Config, etc) --}}
             <div class="grid grid-cols-12 col-span-full lg:col-span-8 p-5 rounded-md h-[33rem] max-h-[33rem] bg-white">
                 {{-- Content --}}
-                <livewire:partials.profile.post-album />
+                <livewire:partials.profile.post-album :user='$user' />
             </div>
         </div>
     </div>

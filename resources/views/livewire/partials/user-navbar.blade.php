@@ -17,32 +17,34 @@
     {{-- Icon Navigation --}}
     <div class="flex col-span-3 lg:col-span-1 justify-self-center gap-14 lg:gap-20">
         {{-- Home --}}
-        <a href="" class="">
+        <a href="/" wire:navigate class="">
             <img src="/svg/home.svg" alt="">
         </a>
 
         {{-- Album --}}
-        <a href="" class=" hidden lg:block">
+        <a href="{{ '/profile/' . auth()->user()->username . '/?tabContent=album' }}" wire:navigate
+            class=" hidden lg:block">
             <img src="/svg/albums.svg" alt="">
         </a>
 
         {{-- Photo --}}
-        <a href="" class=" hidden lg:block">
+        <a href="{{ '/profile/' . auth()->user()->username . '/?tabContent=photo' }}" wire:navigate
+            class=" hidden lg:block">
             <img src="/svg/photos.svg" alt="">
         </a>
 
         {{-- User --}}
-        <a href="" class="c block lg:hidden">
+        <a href="" wire:navigate class="c block lg:hidden">
             <img src="/svg/profile.svg" alt="">
         </a>
 
         {{-- Notification --}}
-        <a href="" class="">
+        <a href="" wire:navigate class="">
             <img src="/svg/notification.svg" alt="">
         </a>
 
         {{-- Other --}}
-        <a href="" class="c block lg:hidden">
+        <a href="" wire:navigate class="c block lg:hidden">
             <img src="/svg/hamburger.svg" alt="">
         </a>
     </div>

@@ -8,14 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class PhotoList extends Component
 {
-    public $photos;
+    public $photos = [];
+    public $user;
 
     public function render()
     {
-        $this->photos = Photo::where('user_id', '=', Auth::id())->get();
+        $this->photos = Photo::where('user_id', '=', $this->user->id)->get();
 
-        return view('livewire.partials.profile.photo-list', [
-            'photos' => $this->photos,
-        ]);
+        return view('livewire.partials.profile.photo-list');
     }
 }
