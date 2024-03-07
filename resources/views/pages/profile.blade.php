@@ -1,4 +1,4 @@
-<div>
+<div class="bg-gray-200">
     <div class="pt-[4.8rem] lg:pt-[6rem] pb-3 px-3">
         <div class="container mx-auto grid grid-cols-12 gap-3">
             {{-- User Description --}}
