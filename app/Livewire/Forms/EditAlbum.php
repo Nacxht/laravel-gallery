@@ -26,23 +26,15 @@ class EditAlbum extends Component
     {
         $validated = $this->validate();
 
-        try {
-            Album::where('user_id', '=', Auth::id())
-                ->where('album_name', '=', $this->albumName)
-                ->firstOrFail();
+        Album::find($this->albumId)->update([
+            'album_name' => Str::slug($this->albumName),
+            'description' => $this->albumDescription,
+            'create_at' => date('Y-m-d'),
+            'user_id' => Auth::id(),
+        ]);
 
-            session()->flash('album-dupe', 'Album name exist!');
-        } catch (Exception $err) {
-            Album::find($this->albumId)->update([
-                'album_name' => Str::slug($this->albumName),
-                'description' => $this->albumDescription,
-                'create_at' => date('Y-m-d'),
-                'user_id' => Auth::id(),
-            ]);
-
-            session()->flash('toast-success', 'Success adding an album');
-            return $this->redirect('/profile/' . Auth::user()->username . '/?tabContent=album', navigate: true);
-        }
+        session()->flash('toast-success', 'Success adding an album');
+        return $this->redirect('/profile/' . Auth::user()->username . '/?tabContent=album', navigate: true);
     }
 
     public function render()

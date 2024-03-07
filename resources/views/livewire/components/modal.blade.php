@@ -45,6 +45,10 @@
             @if ($componentName === 'DeleteAlbum')
                 <livewire:partials.profile.delete-album :albumId='$id' />
             @endif
+
+            @if ($componentName === 'PhotoCommentModal')
+                <livewire:partials.index.photo-comment-modal :photoId='$id' />
+            @endif
         </div>
 
         {{-- Bottom Divider --}}

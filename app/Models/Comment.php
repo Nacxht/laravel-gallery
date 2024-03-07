@@ -13,6 +13,6 @@ class Comment extends Model
         'photo_id',
         'user_id',
         'comment',
-        'comented_at',
+        'commented_at',
     ];
 }
