@@ -106,6 +106,5 @@
         <button type="submit" class="btn btn-primary col-span-12">
             Edit Profile Details
         </button>
-</div>
-</form>
+    </form>
 </div>
