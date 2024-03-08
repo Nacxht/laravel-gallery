@@ -57,6 +57,10 @@
             @if ($componentName === 'CommentDelete')
                 <livewire:partials.index.comment-delete :commentId=$id />
             @endif
+
+            @if ($componentName === 'UserEdit')
+                <livewire:forms.user-edit :userId=$id />
+            @endif
         </div>
 
         {{-- Bottom Divider --}}

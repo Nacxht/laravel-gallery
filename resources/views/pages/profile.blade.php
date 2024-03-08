@@ -64,10 +64,20 @@
                     {{-- Profile Owner / Admin --}}
                     <div class="col-span-12 grid grid-cols-12 gap-3">
                         {{-- Edit User --}}
-                        <a href="" wire:navigate
+                        <button onclick="main_modal.showModal()"
+                            @click="$dispatch('main_modal', {
+                        id: {{ auth()->id() }},
+                        topDivider: true,
+                        bottomDivider: false,
+                        topClose: true,
+                        bottomClose: true,
+                        modalTitle: 'Edit User',
+                        componentName: 'UserEdit',
+                        modalTitleClass: 'font-bold text-center',
+                    })"
                             class="col-span-12 text-center btn btn-outline border-gray-200 hover:bg-gray-200 hover:border-gray-200 hover:text-black">
                             Edit profile
-                        </a>
+                        </button>
 
                         {{-- Add Album --}}
                         <div onclick="main_modal.showModal()"

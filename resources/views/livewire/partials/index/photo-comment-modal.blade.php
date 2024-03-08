@@ -21,20 +21,26 @@
                             <div class="flex items-start gap-2.5">
                                 {{-- Avatar --}}
                                 @if ($user->avatar)
-                                    <img class="w-8 h-8 rounded-full"
-                                        src="{{ url('storage/img/avatar/' . $user->avatar) }}"
-                                        alt="{{ $user->username . '_avatar' }}">
+                                    <a href="{{ route('profile', ['username' => $user->username]) }}">
+                                        <img class="w-8 h-8 rounded-full"
+                                            src="{{ url('storage/img/avatar/' . $user->avatar) }}"
+                                            alt="{{ $user->username . '_avatar' }}">
+                                    </a>
                                 @else
-                                    <img class="w-8 h-8 rounded-full" src="/default/user-default.png"
-                                        alt="{{ $user->username . '_avatar' }}">
+                                    <a href="">
+                                        <img class="w-8 h-8 rounded-full" src="/default/user-default.png"
+                                            alt="{{ $user->username . '_avatar' }}">
+                                    </a>
                                 @endif
 
                                 {{-- Username, Actions & Date --}}
                                 <div class="flex flex-col gap-1 w-auto max-w-[320px]">
                                     {{-- Date --}}
                                     <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                                        <span class="text-sm font-semibold text-gray-900">
-                                            {{ $user->username }}
+                                        <span class="text-sm font-semibold text-gray-900 hover:underline">
+                                            <a href="{{ route('profile', ['username' => $user->username]) }}">
+                                                {{ $user->username }}
+                                            </a>
                                         </span>
                                         <span class="text-sm font-normal text-gray-500">
                                             {{ date('d F Y - H:i', strtotime($comment->created_at)) }}
