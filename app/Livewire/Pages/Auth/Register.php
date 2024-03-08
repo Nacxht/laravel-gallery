@@ -14,10 +14,10 @@ class Register extends Component
 {
     use WithFileUploads;
 
-    #[Validate('required|min:5|max:10|unique:users,username')]
+    #[Validate('required|min:3|max:10|unique:users,username')]
     public $username;
 
-    #[Validate('required|min:5|unique:users,email|email')]
+    #[Validate('required|min:3|unique:users,email|email')]
     public $email;
 
     #[Validate('required|min:3')]

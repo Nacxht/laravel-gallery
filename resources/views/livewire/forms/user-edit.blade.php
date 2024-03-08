@@ -24,7 +24,7 @@
                 @endif
                 {{-- *** --}}
             </div>
-            <input id="dropzone-file" type="file" accept="image/png, image/jpeg, image/jpg" wire:model='avatar'
+            <input id="dropzone-file" type="file" accept="image/png, image/jpeg, image/jpg" wire:model='avatarNew'
                 class="hidden rounded-circle" />
             @error('avatar')
                 <span class="text-xs text-red-500">{{ $message }}</span>
@@ -79,7 +79,7 @@
             @enderror
         </label>
 
-        {{-- Password --}}
+        {{-- Confirm Password --}}
         <label class="form-control col-span-6 w-full">
             <div class="label">
                 <span class="label-text text-sm lg:text-base">Confirm Password</span>

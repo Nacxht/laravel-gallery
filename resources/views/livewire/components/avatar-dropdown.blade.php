@@ -36,7 +36,6 @@
 
             {{-- Title --}}
             <div class="px-2 py-1.5 text-sm font-semibold">My Account</div>
-            {{ auth()->user()->email }}
 
             {{-- Divider --}}
             <div class="h-px my-1 -mx-1 bg-neutral-200"></div>
