@@ -33,9 +33,10 @@
                 {{-- Avatar --}}
                 <div class="col-span-full">
                     @if ($user->avatar)
-                        <img class="max-w-40" src="" alt="">
+                        <img class="max-w-40 rounded-full" src="{{ url('storage/img/avatar/' . $user->avatar) }}"
+                            alt="">
                     @else
-                        <img class="max-w-40" src="/default/user-default.png" alt="">
+                        <img class="max-w-40 rounded-full" src="/default/user-default.png" alt="">
                     @endif
                 </div>
 

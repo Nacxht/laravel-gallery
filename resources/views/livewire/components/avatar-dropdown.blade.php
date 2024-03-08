@@ -7,7 +7,7 @@
         class="inline-flex items-center justify-center h-12 py-2 pl-3 pr-12 text-sm font-medium transition-colors bg-white border rounded-md text-neutral-700 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none disabled:opacity-50 disabled:pointer-events-none">
         {{-- Avatar --}}
         @if (auth()->user()->avatar)
-            <img src="{{ url('storage/avatar/' . auth()->user()->avatar) }}"
+            <img src="{{ url('storage/img/avatar/' . auth()->user()->avatar) }}"
                 class="object-cover w-8 h-8 border rounded-full border-neutral-200" />
         @else
             <img src="/default/user-default.png" class="object-cover w-8 h-8 border rounded-full border-neutral-200" />
