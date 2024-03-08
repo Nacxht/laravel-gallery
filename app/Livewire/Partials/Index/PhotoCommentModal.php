@@ -51,18 +51,6 @@ class PhotoCommentModal extends Component
         $this->commentInput = '';
     }
 
-    public function editComment()
-    {
-        $validate = $this->validate();
-
-        Comment::find($this->editCommentId)->update([
-            'comment' => $this->editCommentInput,
-        ]);
-
-        $this->editCommentInput = '';
-        $this->isEdit = !$this->isEdit;
-    }
-
     public function render()
     {
         $this->comments = Comment::where('photo_id', '=', $this->photoId)->get();

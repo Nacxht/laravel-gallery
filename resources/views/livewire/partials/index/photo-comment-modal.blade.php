@@ -42,42 +42,42 @@
                                     </div>
 
                                     {{-- Comment --}}
-                                    @if ($isEdit && $comment->id == $editCommentId)
-                                        <form wire:submit.prevent='editComment'>
-                                            <div class="w-full max-w-xs mx-auto">
-                                                <textarea class="textarea textarea-bordered" wire:model='editCommentInput'></textarea>
-                                            </div>
+                                    <div
+                                        class="flex flex-col leading-1.5 p-4 border-gray-300 bg-gray-200 rounded-e-xl rounded-es-xl">
 
-                                            {{-- Actions --}}
-                                            <div class="flex gap-3">
-                                                <button type="submit" @click="$dispatch('refresh_comment')"
-                                                    class="text-xs font-normal text-primary">Submit</button>
-                                                <button wire:click.prevent
-                                                    @click="$dispatch('comment_edit', {id: {{ $comment->id }}})"
-                                                    class="text-xs font-normal text-error">Cancel</button>
-                                            </div>
-                                        </form>
-                                    @else
-                                        <div
-                                            class="flex flex-col leading-1.5 p-4 border-gray-300 bg-gray-200 rounded-e-xl rounded-es-xl">
+                                        <p class="text-sm font-normal text-gray-900">
+                                            {{ $comment->comment }}
+                                        </p>
+                                    </div>
 
-                                            <p class="text-sm font-normal text-gray-900">
-                                                {{ $comment->comment }}
-                                            </p>
-                                        </div>
-                                    @endif
-
+                                    {{-- Actions --}}
                                     @if (Auth::user()->username === $user->username)
-                                        @if ($comment->id == $editCommentId && $isEdit)
-                                            <div></div>
-                                        @else
-                                            {{-- Actions --}}
-                                            <div class="flex gap-3">
-                                                <button @click="$dispatch('comment_edit', {id: {{ $comment->id }}})"
-                                                    class="text-xs font-normal text-primary">Edit</button>
-                                                <button class="text-xs font-normal text-error">Delete</button>
-                                            </div>
-                                        @endif
+                                        <div class="flex gap-3">
+                                            <button
+                                                @click="$dispatch('main_modal', {
+                                            id: {{ $comment->id }},
+                                            topDivider: true,
+                                            bottomDivider: false,
+                                            topClose: true,
+                                            bottomClose: true,
+                                            modalTitle: 'Edit Comment',
+                                            componentName: 'EditComment',
+                                            modalTitleClass: 'font-bold text-center',
+                                        })"
+                                                class="text-xs font-normal text-primary">Edit</button>
+                                            <button
+                                                @click="$dispatch('main_modal', {
+                                                id: {{ $comment->id }},
+                                                topDivider: true,
+                                                bottomDivider: false,
+                                                topClose: true,
+                                                bottomClose: false,
+                                                modalTitle: 'Delete Comment',
+                                                componentName: 'CommentDelete',
+                                                modalTitleClass: 'font-bold text-center',
+                                            })"
+                                                class="text-xs font-normal text-error">Delete</button>
+                                        </div>
                                     @endif
                                 </div>
                             </div>

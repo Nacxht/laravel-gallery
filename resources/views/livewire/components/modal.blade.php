@@ -49,6 +49,14 @@
             @if ($componentName === 'PhotoCommentModal')
                 <livewire:partials.index.photo-comment-modal :photoId='$id' />
             @endif
+
+            @if ($componentName === 'EditComment')
+                <livewire:forms.edit-comment :commentId=$id />
+            @endif
+
+            @if ($componentName === 'CommentDelete')
+                <livewire:partials.index.comment-delete :commentId=$id />
+            @endif
         </div>
 
         {{-- Bottom Divider --}}
