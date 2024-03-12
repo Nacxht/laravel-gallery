@@ -52,7 +52,8 @@
                 <span>Profile</span>
             </a>
 
-            <a href="#_"
+            {{-- Billing --}}
+            {{-- <a href="#_"
                 class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -61,8 +62,10 @@
                     <line x1="2" x2="22" y1="10" y2="10"></line>
                 </svg>
                 <span>Billing</span><span class="ml-auto text-xs tracking-widest opacity-60">⌘B</span>
-            </a>
-            <a href="#_"
+            </a> --}}
+
+            {{-- Settings --}}
+            {{-- <a href="#_"
                 class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -74,27 +77,13 @@
                 </svg>
                 <span>Settings</span>
                 <span class="ml-auto text-xs tracking-widest opacity-60">⌘S</span>
-            </a>
-            <a href="#_"
-                class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="w-4 h-4 mr-2">
-                    <rect width="20" height="16" x="2" y="4" rx="2" ry="2"></rect>
-                    <path d="M6 8h.001"></path>
-                    <path d="M10 8h.001"></path>
-                    <path d="M14 8h.001"></path>
-                    <path d="M18 8h.001"></path>
-                    <path d="M8 12h.001"></path>
-                    <path d="M12 12h.001"></path>
-                    <path d="M16 12h.001"></path>
-                    <path d="M7 16h10"></path>
-                </svg>
-                <span>Keyboard shortcuts</span>
-                <span class="ml-auto text-xs tracking-widest opacity-60">⌘K</span>
-            </a>
-            <div class="h-px my-1 -mx-1 bg-neutral-200"></div>
-            <div
+            </a> --}}
+
+            {{-- Divider --}}
+            {{-- <div class="h-px my-1 -mx-1 bg-neutral-200"></div> --}}
+
+            {{-- Team --}}
+            {{-- <div
                 class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -105,8 +94,10 @@
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
                 <span>Team</span>
-            </div>
-            <div class="relative group">
+            </div> --}}
+
+            {{-- Invite Users (Dropdown) --}}
+            {{-- <div class="relative group">
                 <div
                     class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -161,8 +152,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div
+            </div> --}}
+
+            {{-- New Team --}}
+            {{-- <div
                 class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -172,9 +165,13 @@
                 </svg>
                 <span>New Team</span>
                 <span class="ml-auto text-xs tracking-widest opacity-60">⌘+T</span>
-            </div>
-            <div class="h-px my-1 -mx-1 bg-neutral-200"></div>
-            <a href="#_"
+            </div> --}}
+
+            {{-- Divider --}}
+            {{-- <div class="h-px my-1 -mx-1 bg-neutral-200"></div> --}}
+
+            {{-- Github --}}
+            {{-- <a href="#_"
                 class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -185,8 +182,10 @@
                     <path d="M9 18c-4.51 2-5-2-7-2"></path>
                 </svg>
                 <span>GitHub</span>
-            </a>
-            <a href="#_"
+            </a> --}}
+
+            {{-- Support --}}
+            {{-- <a href="#_"
                 class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -200,8 +199,10 @@
                     <line x1="4.93" x2="9.17" y1="19.07" y2="14.83"></line>
                 </svg>
                 <span>Support</span>
-            </a>
-            <a href="#_"
+            </a> --}}
+
+            {{-- API --}}
+            {{-- <a href="#_"
                 class="relative flex cursor-default select-none hover:bg-neutral-100 items-center rounded px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                 data-disabled>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -210,8 +211,12 @@
                     <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
                 </svg>
                 <span>API</span>
-            </a>
+            </a> --}}
+
+            {{-- Divider --}}
             <div class="h-px my-1 -mx-1 bg-neutral-200"></div>
+
+            {{-- Logout --}}
             <livewire:pages.auth.logout>
         </div>
     </div>

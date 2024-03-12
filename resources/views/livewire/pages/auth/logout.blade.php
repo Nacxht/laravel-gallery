@@ -7,5 +7,4 @@
         <line x1="21" x2="9" y1="12" y2="12"></line>
     </svg>
     <span>Log out</span>
-    <span class="ml-auto text-xs tracking-widest opacity-60">⇧⌘Q</span>
 </button>

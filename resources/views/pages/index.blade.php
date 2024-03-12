@@ -14,4 +14,5 @@
 
     {{-- Modal --}}
     <livewire:components.modal />
+    <livewire:components.modal-image-overview />
 </div>

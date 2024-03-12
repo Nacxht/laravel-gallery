@@ -48,7 +48,11 @@
         {{-- Image --}}
         <div class="">
             <div class="flex items-center justify-center w-full sm:w-96">
-                <button class="hover:opacity-75 transition-opacity duration-200">
+                <button
+                    @click="$dispatch('overview_modal', {
+                            id: {{ $photo['data']->id }}
+                        })"
+                    onclick="overview_modal.showModal()" class="hover:opacity-75 transition-opacity duration-200">
                     <img class="w-full" src="{{ url('storage/img/photos/' . $photo['data']->filename, []) }}"
                         alt="">
                 </button>
