@@ -11,11 +11,12 @@
         </div>
 
         {{-- Action --}}
-        <div class="grid grid-cols-12 col-span-12 mt-3 justify-items-center space-x-0">
-            {{-- Edit --}}
-            <form method="dialog" class="col-span-6">
-                <button wire:click.prevent onclick="main_modal.showModal()"
-                    @click="$dispatch('main_modal', {
+        @if ($album->user_id === Auth::id())
+            <div class="grid grid-cols-12 col-span-12 mt-3 justify-items-center space-x-0">
+                {{-- Edit --}}
+                <form method="dialog" class="col-span-6">
+                    <button wire:click.prevent onclick="main_modal.showModal()"
+                        @click="$dispatch('main_modal', {
                                         id: {{ $albumId }},
                                         topDivider: true,
                                         bottomDivider: false,
@@ -25,15 +26,15 @@
                                         componentName: 'EditAlbum',
                                         modalTitleClass: 'font-bold text-center',
                                     }); $dispatch('edit_album', {id: {{ $albumId }}})"
-                    class="btn btn-primary w-32">
-                    Edit Album
-                </button>
-            </form>
+                        class="btn btn-primary w-32">
+                        Edit Album
+                    </button>
+                </form>
 
-            {{-- Delete --}}
-            <form method="dialog" class="col-span-6">
-                <button wire:click.prevent onclick="main_modal.showModal()"
-                    @click="$dispatch('main_modal', {
+                {{-- Delete --}}
+                <form method="dialog" class="col-span-6">
+                    <button wire:click.prevent onclick="main_modal.showModal()"
+                        @click="$dispatch('main_modal', {
                                         id: {{ $albumId }},
                                         topDivider: true,
                                         bottomDivider: false,
@@ -43,11 +44,12 @@
                                         componentName: 'DeleteAlbum',
                                         modalTitleClass: 'font-bold text-center',
                                     }); $dispatch('delete_album', {id: {{ $albumId }}})"
-                    class="btn btn-error w-32">
-                    Delete Album
-                </button>
-            </form>
-        </div>
+                        class="btn btn-error w-32">
+                        Delete Album
+                    </button>
+                </form>
+            </div>
+        @endif
 
     </div>
 </div>

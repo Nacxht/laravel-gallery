@@ -26,11 +26,12 @@
                             class="max-h-[15rem] rounded col-span-12">
 
                         {{-- Action --}}
-                        <div class="grid grid-cols-12 col-span-12 mt-3 gap-3">
-                            {{-- Edit --}}
-                            <form method="dialog" class="col-span-6">
-                                <button onclick="main_modal.showModal()"
-                                    @click="$dispatch('main_modal', {
+                        @if ($photo->user_id === Auth::id())
+                            <div class="grid grid-cols-12 col-span-12 mt-3 gap-3">
+                                {{-- Edit --}}
+                                <form method="dialog" class="col-span-6">
+                                    <button onclick="main_modal.showModal()"
+                                        @click="$dispatch('main_modal', {
                                         id: {{ $photo->id }},
                                         topDivider: true,
                                         bottomDivider: false,
@@ -41,15 +42,15 @@
                                         modalTitleClass: 'font-bold text-center',
                                     });
                                     $dispatch('edit_photo', {id: {{ $photo->id }}})"
-                                    class="btn btn-primary w-32">
-                                    Edit Photo
-                                </button>
-                            </form>
+                                        class="btn btn-primary w-32">
+                                        Edit Photo
+                                    </button>
+                                </form>
 
-                            {{-- Delete --}}
-                            <form method="dialog" class="col-span-6">
-                                <button onclick="main_modal.showModal()"
-                                    @click="$dispatch('main_modal', {
+                                {{-- Delete --}}
+                                <form method="dialog" class="col-span-6">
+                                    <button onclick="main_modal.showModal()"
+                                        @click="$dispatch('main_modal', {
                                         id: {{ $photo->id }},
                                         topDivider: true,
                                         bottomDivider: false,
@@ -60,12 +61,14 @@
                                         modalTitleClass: 'font-bold text-center',
                                     });
                                     $dispatch('delete_photo', {id: {{ $photo->id }}})"
-                                    class="btn btn-error w-32">
-                                    Delete Photo
-                                </button>
-                            </form>
-                        </div>
+                                        class="btn btn-error w-32">
+                                        Delete Photo
+                                    </button>
+                                </form>
+                            </div>
+                        @endif
                     </div>
+
 
                     {{-- Details --}}
                     <div>

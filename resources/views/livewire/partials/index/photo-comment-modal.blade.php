@@ -3,8 +3,8 @@
     @if (!count($comments))
         <div class="flex justify-center items-center h-80">
             <div class="text-center">
-                <p class="text-lg font-bold text-gray-400">Belum ada komentar</p>
-                <p class="text-gray-400">Jadilah yang pertama berkomentar</p>
+                <p class="text-lg font-bold text-gray-400">There are no comments at all yet</p>
+                <p class="text-gray-400">Be the first to comment</p>
             </div>
         </div>
     @else
@@ -57,7 +57,7 @@
                                     </div>
 
                                     {{-- Actions --}}
-                                    @if (Auth::user()->username === $user->username)
+                                    @if (Auth::check() && Auth::user()->username === $user->username)
                                         <div class="flex gap-3">
                                             <button
                                                 @click="$dispatch('main_modal', {
@@ -97,31 +97,37 @@
 
     {{-- Comment Input --}}
     <div class="border-t rounded-t bg-white ">
-        <form wire:submit.prevent='commentSend'>
-            <div class="flex items-center px-3 py-2 rounded-lg">
-                {{-- Avatar (Next Time 😂) --}}
-                <div></div>
-                {{-- *** --}}
-
-                {{-- Input --}}
-                <textarea id="chat" rows="1"
-                    class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:outline-none"
-                    placeholder="Tulis komentar..." wire:model='commentInput'></textarea>
-                {{-- *** --}}
-
-                {{-- Send Button --}}
-                <button type="submit" wire:click="$refresh" @click="$dispatch('refresh_comment')"
-                    class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-gray-300 transition-colors duration-200">
-                    <svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" viewBox="0 0 18 20">
-                        <path
-                            d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
-                    </svg>
-                    <span class="sr-only">Send message</span>
-                </button>
-                {{-- *** --}}
+        @if (!Auth::check())
+            <div class="text-center pt-5 text-gray-600">
+                Log in first to comment
             </div>
-        </form>
+        @else
+            <form wire:submit.prevent='commentSend'>
+                <div class="flex items-center px-3 py-2 rounded-lg">
+                    {{-- Avatar (Next Time 😂) --}}
+                    <div></div>
+                    {{-- *** --}}
+
+                    {{-- Input --}}
+                    <textarea id="chat" rows="1"
+                        class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:outline-none"
+                        placeholder="Tulis komentar..." wire:model='commentInput'></textarea>
+                    {{-- *** --}}
+
+                    {{-- Send Button --}}
+                    <button type="submit" wire:click="$refresh" @click="$dispatch('refresh_comment')"
+                        class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-gray-300 transition-colors duration-200">
+                        <svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                            <path
+                                d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
+                        </svg>
+                        <span class="sr-only">Send message</span>
+                    </button>
+                    {{-- *** --}}
+                </div>
+            </form>
+        @endif
     </div>
     {{-- End --}}
 </div>
