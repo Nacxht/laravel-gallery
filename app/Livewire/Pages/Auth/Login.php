@@ -44,7 +44,7 @@ class Login extends Component
     }
 
     #[Layout('layouts.auth-layout')]
-    #[Title('Gallery | Login')]
+    #[Title('Login')]
     public function render()
     {
         return view('pages.auth.login');
