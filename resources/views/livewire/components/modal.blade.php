@@ -51,15 +51,15 @@
             @endif
 
             @if ($componentName === 'EditComment')
-                <livewire:forms.edit-comment :commentId=$id />
+                <livewire:forms.edit-comment :commentId='$id' />
             @endif
 
             @if ($componentName === 'CommentDelete')
-                <livewire:partials.index.comment-delete :commentId=$id />
+                <livewire:partials.index.comment-delete :commentId='$id' />
             @endif
 
             @if ($componentName === 'UserEdit')
-                <livewire:forms.user-edit :userId=$id />
+                <livewire:forms.user-edit />
             @endif
         </div>
 
