@@ -61,7 +61,7 @@ class Register extends Component
     }
 
     #[Layout('layouts.auth-layout')]
-    #[Title('Register')]
+    #[Title('Gallery | Register')]
     public function render()
     {
         return view('pages.auth.register');
