@@ -11,7 +11,7 @@
                             componentName: 'ModalPhotoContent',
                             modalTitleClass: 'font-bold text-center',
                         })"
-            onclick="overview_modal.showModal()">
+            onclick="image_modal.showModal()">
             <img class="rounded h-full w-full object-cover object-top aspect-square hover:opacity-70 transition-opacity duration-200"
                 src="{{ url('storage/img/photos/' . $photo->filename) }}" alt="">
         </button>

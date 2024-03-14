@@ -38,7 +38,6 @@ class Register extends Component
     public function userRegister()
     {
         $validated = $this->validate();
-        $filename = 'default.png';
 
         if ($this->avatar) {
             $file = $this->avatar;
@@ -52,7 +51,6 @@ class Register extends Component
             'email' => $this->email,
             'full_name' => $this->fullName,
             'address' => $this->address,
-            'avatar' => $filename,
             'slug' => Str::slug($this->username),
         ]);
 
