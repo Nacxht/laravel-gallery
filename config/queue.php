@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('QUEUE_CONNECTION', 'sync'),
+    'default' => $_SERVER('QUEUE_CONNECTION', 'sync'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,19 +53,19 @@ return [
 
         'sqs' => [
             'driver' => 'sqs',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'prefix' => env('SQS_PREFIX', 'https://sqs.us-east-1.amazonaws.com/your-account-id'),
-            'queue' => env('SQS_QUEUE', 'default'),
-            'suffix' => env('SQS_SUFFIX'),
-            'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+            'key' => $_SERVER('AWS_ACCESS_KEY_ID'),
+            'secret' => $_SERVER('AWS_SECRET_ACCESS_KEY'),
+            'prefix' => $_SERVER('SQS_PREFIX', 'https://sqs.us-east-1.amazonaws.com/your-account-id'),
+            'queue' => $_SERVER('SQS_QUEUE', 'default'),
+            'suffix' => $_SERVER('SQS_SUFFIX'),
+            'region' => $_SERVER('AWS_DEFAULT_REGION', 'us-east-1'),
             'after_commit' => false,
         ],
 
         'redis' => [
             'driver' => 'redis',
             'connection' => 'default',
-            'queue' => env('REDIS_QUEUE', 'default'),
+            'queue' => $_SERVER('REDIS_QUEUE', 'default'),
             'retry_after' => 90,
             'block_for' => null,
             'after_commit' => false,
@@ -85,7 +85,7 @@ return [
     */
 
     'batching' => [
-        'database' => env('DB_CONNECTION', 'mysql'),
+        'database' => $_SERVER('DB_CONNECTION', 'mysql'),
         'table' => 'job_batches',
     ],
 
@@ -101,8 +101,8 @@ return [
     */
 
     'failed' => [
-        'driver' => env('QUEUE_FAILED_DRIVER', 'database-uuids'),
-        'database' => env('DB_CONNECTION', 'mysql'),
+        'driver' => $_SERVER('QUEUE_FAILED_DRIVER', 'database-uuids'),
+        'database' => $_SERVER('DB_CONNECTION', 'mysql'),
         'table' => 'failed_jobs',
     ],
 

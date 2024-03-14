@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'compiled' => env(
+    'compiled' => $_SERVER(
         'VIEW_COMPILED_PATH',
         realpath(storage_path('framework/views'))
     ),

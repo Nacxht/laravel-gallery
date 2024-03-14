@@ -29,7 +29,7 @@ return [
     */
 
     'bcrypt' => [
-        'rounds' => env('BCRYPT_ROUNDS', 12),
+        'rounds' => $_SERVER('BCRYPT_ROUNDS', 12),
         'verify' => true,
     ],
 

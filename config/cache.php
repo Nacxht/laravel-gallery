@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'file'),
+    'default' => $_SERVER('CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,18 +57,18 @@ return [
 
         'memcached' => [
             'driver' => 'memcached',
-            'persistent_id' => env('MEMCACHED_PERSISTENT_ID'),
+            'persistent_id' => $_SERVER('MEMCACHED_PERSISTENT_ID'),
             'sasl' => [
-                env('MEMCACHED_USERNAME'),
-                env('MEMCACHED_PASSWORD'),
+                $_SERVER('MEMCACHED_USERNAME'),
+                $_SERVER('MEMCACHED_PASSWORD'),
             ],
             'options' => [
                 // Memcached::OPT_CONNECT_TIMEOUT => 2000,
             ],
             'servers' => [
                 [
-                    'host' => env('MEMCACHED_HOST', '127.0.0.1'),
-                    'port' => env('MEMCACHED_PORT', 11211),
+                    'host' => $_SERVER('MEMCACHED_HOST', '127.0.0.1'),
+                    'port' => $_SERVER('MEMCACHED_PORT', 11211),
                     'weight' => 100,
                 ],
             ],
@@ -82,11 +82,11 @@ return [
 
         'dynamodb' => [
             'driver' => 'dynamodb',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
-            'table' => env('DYNAMODB_CACHE_TABLE', 'cache'),
-            'endpoint' => env('DYNAMODB_ENDPOINT'),
+            'key' => $_SERVER('AWS_ACCESS_KEY_ID'),
+            'secret' => $_SERVER('AWS_SECRET_ACCESS_KEY'),
+            'region' => $_SERVER('AWS_DEFAULT_REGION', 'us-east-1'),
+            'table' => $_SERVER('DYNAMODB_CACHE_TABLE', 'cache'),
+            'endpoint' => $_SERVER('DYNAMODB_ENDPOINT'),
         ],
 
         'octane' => [
@@ -106,6 +106,6 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache_'),
+    'prefix' => $_SERVER('CACHE_PREFIX', Str::slug($_SERVER('APP_NAME', 'laravel'), '_').'_cache_'),
 
 ];

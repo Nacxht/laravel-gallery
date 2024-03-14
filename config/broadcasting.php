@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('BROADCAST_DRIVER', 'null'),
+    'default' => $_SERVER('BROADCAST_DRIVER', 'null'),
 
     /*
     |--------------------------------------------------------------------------
@@ -32,16 +32,16 @@ return [
 
         'pusher' => [
             'driver' => 'pusher',
-            'key' => env('PUSHER_APP_KEY'),
-            'secret' => env('PUSHER_APP_SECRET'),
-            'app_id' => env('PUSHER_APP_ID'),
+            'key' => $_SERVER('PUSHER_APP_KEY'),
+            'secret' => $_SERVER('PUSHER_APP_SECRET'),
+            'app_id' => $_SERVER('PUSHER_APP_ID'),
             'options' => [
-                'cluster' => env('PUSHER_APP_CLUSTER'),
-                'host' => env('PUSHER_HOST') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
-                'port' => env('PUSHER_PORT', 443),
-                'scheme' => env('PUSHER_SCHEME', 'https'),
+                'cluster' => $_SERVER('PUSHER_APP_CLUSTER'),
+                'host' => $_SERVER('PUSHER_HOST') ?: 'api-'.$_SERVER('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
+                'port' => $_SERVER('PUSHER_PORT', 443),
+                'scheme' => $_SERVER('PUSHER_SCHEME', 'https'),
                 'encrypted' => true,
-                'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
+                'useTLS' => $_SERVER('PUSHER_SCHEME', 'https') === 'https',
             ],
             'client_options' => [
                 // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
@@ -50,7 +50,7 @@ return [
 
         'ably' => [
             'driver' => 'ably',
-            'key' => env('ABLY_KEY'),
+            'key' => $_SERVER('ABLY_KEY'),
         ],
 
         'redis' => [
